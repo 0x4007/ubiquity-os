@@ -16,7 +16,7 @@ echo "Welcome to the Ubiquity OS Marketplace Setup and Update Script!"
 
 echo "Select an option:"
 echo "1) First-Time Setup (Clone, Install Dependencies)"
-echo "2) Update All Repositories"
+echo "2) Update All Repositories and Install Dependencies"
 echo "3) Install Dependencies Only"
 echo "4) Exit"
 
@@ -36,12 +36,15 @@ case $choice in
         ;;
     2)
         if check_cloned; then
-            echo "Updating all repositories..."
+            echo "Updating all repositories and installing dependencies..."
 
             # Update repositories
             ./setup/git-pull-all.sh
 
-            echo "Update completed."
+            # Install dependencies
+            ./setup/yarn-install-all.sh
+
+            echo "Update and dependency installation completed."
         else
             echo "Repositories have not been cloned yet. Please run the first-time setup."
         fi
