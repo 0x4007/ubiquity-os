@@ -27,10 +27,10 @@ case $choice in
         echo "Starting first-time setup..."
 
         # Clone repositories
-        ./clone-all-marketplace.sh
+        ./setup/clone-all-marketplace.sh
 
         # Install dependencies
-        ./bun-install-all.sh
+        ./setup/yarn-install-all.sh
 
         echo "First-time setup completed."
         ;;
@@ -39,7 +39,7 @@ case $choice in
             echo "Updating all repositories..."
 
             # Update repositories
-            ./git-pull-all.sh
+            ./setup/git-pull-all.sh
 
             echo "Update completed."
         else
@@ -51,7 +51,7 @@ case $choice in
             echo "Installing dependencies for all repositories..."
 
             # Install dependencies
-            ./bun-install-all.sh
+            ./setup/yarn-install-all.sh
 
             echo "Dependencies installation completed."
         else
