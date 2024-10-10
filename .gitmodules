@@ -1,3 +1,0 @@
-[submodule "submodules/ubiquity-os-kernel"]
-	path = submodules/ubiquity-os-kernel
-	url = https://github.com/ubiquity-os/ubiquity-os-kernel.git
