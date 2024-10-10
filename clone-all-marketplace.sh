@@ -11,8 +11,7 @@ cd "$ORG_NAME"
 REPOS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" "https://api.github.com/orgs/$ORG_NAME/repos" | grep -o '"clone_url": "[^"]*' | sed 's/"clone_url": "//')
 
 # Clone each repository
-for repo in $REPOS
-do
+for repo in $REPOS; do
     repo_name=$(basename "$repo" .git)
     if [ -d "$repo_name" ]; then
         echo "Repository $repo_name already exists. Skipping..."
